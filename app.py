@@ -52,7 +52,8 @@ links_alojamientos = {
     },
     "Madrid": {
         "Opción 1 - $ 301 USD pp": "https://www.airbnb.co.cr/rooms/16993980?adults=8&check_in=2027-05-03&check_out=2027-05-07&search_mode=regular_search&source_impression_id=p3_ddc2b793-4850-4c8a-83ff-8e5632fb7e86_2c5c7aca-8de2-4dfa-afee-7ac9f5e83da3_0_16993980_1&previous_page_section_name=1000&federated_search_id=ddc2b793-4850-4c8a-83ff-8e5632fb7e86",
-        "Opción 2 - $ 256 USD pp": "https://www.airbnb.co.cr/rooms/11990713?adults=8&check_in=2027-05-03&check_out=2027-05-07&search_mode=regular_search&source_impression_id=p3_dcecc70d-f6ad-4099-92f0-45d6cd9fa507_a61243b5-47dd-4ed8-845a-969d743b92e4_0_11990713_1&previous_page_section_name=1000&federated_search_id=dcecc70d-f6ad-4099-92f0-45d6cd9fa507"
+        "Opción 2 - $ 256 USD pp": "https://www.airbnb.co.cr/rooms/11990713?adults=8&check_in=2027-05-03&check_out=2027-05-07&search_mode=regular_search&source_impression_id=p3_dcecc70d-f6ad-4099-92f0-45d6cd9fa507_a61243b5-47dd-4ed8-845a-969d743b92e4_0_11990713_1&previous_page_section_name=1000&federated_search_id=dcecc70d-f6ad-4099-92f0-45d6cd9fa507",
+        "Opción 3 - $ 353 USD pp (Chamartín) ": "https://www.airbnb.co.cr/rooms/1378934591316351999?adults=8&check_in=2027-05-03&check_out=2027-05-07&search_mode=regular_search&source_impression_id=p3_1791847224_P3B7e6o33BmQ_gzR&previous_page_section_name=1001&federated_search_id=c4d7d3e0-8f53-4492-af94-3c8bcd850e90&review_page_entrypoint=show_all"
     }
 }
 
@@ -155,7 +156,7 @@ precio_v_mad_usd = 112.00 if "Ryanair" in opcion_vuelo_mad else (119.84 if "Air 
 
 precio_bcn_usd = 310 if "Opción 1" in sel_bcn else (426 if "Opción 2" in sel_bcn else 387)
 precio_roma_usd = 373 if "Opción 1" in sel_roma else 339
-precio_mad_usd = 301 if "Opción 1" in sel_mad else 256
+precio_mad_usd = 301 if "Opción 1" in sel_mad else (256 if "Opción 2" in sel_mad else 353)
 
 # Costos de trenes de Madrid (Toledo y Segovia)
 precio_toledo_usd = (22.20 * TASA_CAMBIO) if "Ida y Vuelta" in opcion_tren_toledo else ((13.90 * TASA_CAMBIO) if "Solo Ida" in opcion_tren_toledo else 0.0)
