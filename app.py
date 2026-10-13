@@ -57,20 +57,19 @@ links_alojamientos = {
     }
 }
 
-# --- COSTOS BASE EN EUROS DESDE EL EXCEL ---
+# --- COSTOS BASE EN EUROS ---
 costo_esim_eur = 50.5
 costo_seguro_eur = 57.0
 costo_uber_eur = 12.0
 costo_vaticano_eur = 25.0
 costo_prado_eur = 39.0
 
-# Precios individuales de excursiones de tu Excel
 costo_sitges_eur = 10.0
 costo_girona_eur = 34.8
 costo_florencia_eur = 60.0
 costo_guell_eur = 10.0
 
-# --- BARRA LATERAL (DROPDOWNS, CHECKBOXES Y RADIOS INTERACTIVOS) ---
+# --- BARRA LATERAL ---
 with st.sidebar:
     st.header("🗳️ Opciones de Alojamiento")
     st.markdown("Configura la combinación para ver los links en tiempo real:")
@@ -96,53 +95,15 @@ with st.sidebar:
     incluye_vaticano = st.checkbox(f"Visita al Vaticano (+ $ {costo_vaticano_eur * TASA_CAMBIO:.2f} USD)", value=False)
     incluye_prado = st.checkbox(f"Museo del Prado (+ $ {costo_prado_eur * TASA_CAMBIO:.2f} USD)", value=False)
     
-    # Opciones de trenes para Madrid (Toledo y Segovia)
     st.markdown("---")
     st.subheader("🚄 Trenes desde Madrid")
-    opcion_tren_toledo = st.selectbox(
-        "Tren a Toledo:", 
-        [
-            f"Renfe Avant (Ida y Vuelta) - $ {22.20 * TASA_CAMBIO:.2f} USD", 
-            f"Renfe Avant (Solo Ida) - $ {13.90 * TASA_CAMBIO:.2f} USD", 
-            "No asistir ($ 0.00 USD)"
-        ], index=2
-    )
-    
-    opcion_tren_segovia = st.selectbox(
-        "Tren a Segovia:", 
-        [
-            f"OUIGO - $ {9.00 * TASA_CAMBIO:.2f} USD", 
-            f"Renfe Avant - $ {13.90 * TASA_CAMBIO:.2f} USD", 
-            f"Renfe AVE / Alvia - $ {20.00 * TASA_CAMBIO:.2f} USD", 
-            "No asistir ($ 0.00 USD)"
-        ], index=3
-    )
+    opcion_tren_toledo = st.selectbox("Tren a Toledo:", [f"Renfe Avant (Ida y Vuelta) - $ {22.20 * TASA_CAMBIO:.2f} USD", f"Renfe Avant (Solo Ida) - $ {13.90 * TASA_CAMBIO:.2f} USD", "No asistir ($ 0.00 USD)"], index=2)
+    opcion_tren_segovia = st.selectbox("Tren a Segovia:", [f"OUIGO - $ {9.00 * TASA_CAMBIO:.2f} USD", f"Renfe Avant - $ {13.90 * TASA_CAMBIO:.2f} USD", f"Renfe AVE / Alvia - $ {20.00 * TASA_CAMBIO:.2f} USD", "No asistir ($ 0.00 USD)"], index=3)
 
     st.markdown("---")
     st.subheader("🎟️ Modalidades de Entradas (Elegir una sola)")
-    
-    # Opciones de Sagrada Familia (Inicio por defecto en "No asistir")
-    sel_sagrada = st.radio(
-        "Sagrada Familia:",
-        [
-            f"Entrada simple + audioguía ($ {26 * TASA_CAMBIO:.2f} USD)",
-            f"Visita Guiada ($ {30 * TASA_CAMBIO:.2f} USD)",
-            f"Entrada con acceso a torre ($ {36 * TASA_CAMBIO:.2f} USD)",
-            f"Guiada + acceso a torre ($ {40 * TASA_CAMBIO:.2f} USD)",
-            "No asistir ($ 0.00 USD)"
-        ], index=4
-    )
-    
-    # Opciones de Coliseo (Inicio por defecto en "No asistir")
-    sel_coliseo = st.radio(
-        "Coliseo romano:",
-        [
-            f"24h – Coliseo, Foro Romano y Palatino ($ {18 * TASA_CAMBIO:.2f} USD)",
-            f"24h – Only Arena ($ {18 * TASA_CAMBIO:.2f} USD)",
-            f"Full Experience (2 días consecutivos) ($ {24 * TASA_CAMBIO:.2f} USD)",
-            "No asistir ($ 0.00 USD)"
-        ], index=3
-    )
+    sel_sagrada = st.radio("Sagrada Familia:", [f"Entrada simple + audioguía ($ {26 * TASA_CAMBIO:.2f} USD)", f"Visita Guiada ($ {30 * TASA_CAMBIO:.2f} USD)", f"Entrada con acceso a torre ($ {36 * TASA_CAMBIO:.2f} USD)", f"Guiada + acceso a torre ($ {40 * TASA_CAMBIO:.2f} USD)", "No asistir ($ 0.00 USD)"], index=4)
+    sel_coliseo = st.radio("Coliseo romano:", [f"24h – Coliseo, Foro Romano y Palatino ($ {18 * TASA_CAMBIO:.2f} USD)", f"24h – Only Arena ($ {18 * TASA_CAMBIO:.2f} USD)", f"Full Experience (2 días consecutivos) ($ {24 * TASA_CAMBIO:.2f} USD)", "No asistir ($ 0.00 USD)"], index=3)
 
     st.markdown("---")
     st.subheader("🛡️ Logística Adicional")
@@ -158,11 +119,9 @@ precio_bcn_usd = 310 if "Opción 1" in sel_bcn else (426 if "Opción 2" in sel_b
 precio_roma_usd = 373 if "Opción 1" in sel_roma else 339
 precio_mad_usd = 301 if "Opción 1" in sel_mad else (256 if "Opción 2" in sel_mad else 353)
 
-# Costos de trenes de Madrid (Toledo y Segovia)
 precio_toledo_usd = (22.20 * TASA_CAMBIO) if "Ida y Vuelta" in opcion_tren_toledo else ((13.90 * TASA_CAMBIO) if "Solo Ida" in opcion_tren_toledo else 0.0)
 precio_segovia_usd = (9.00 * TASA_CAMBIO) if "OUIGO" in opcion_tren_segovia else ((13.90 * TASA_CAMBIO) if "Renfe Avant" in opcion_tren_segovia else ((20.00 * TASA_CAMBIO) if "AVE / Alvia" in opcion_tren_segovia else 0.0))
 
-# Variables condicionales de checkboxes y tours de Madrid
 sitges_usd = (costo_sitges_eur * TASA_CAMBIO) if incluye_sitges else 0.0
 girona_usd = (costo_girona_eur * TASA_CAMBIO) if incluye_girona else 0.0
 florencia_usd = (costo_florencia_eur * TASA_CAMBIO) if incluye_florencia else 0.0
@@ -172,19 +131,52 @@ prado_usd = (costo_prado_eur * TASA_CAMBIO) if incluye_prado else 0.0
 esim_usd = (costo_esim_eur * TASA_CAMBIO) if incluye_esim else 0.0
 seguro_usd = (costo_seguro_eur * TASA_CAMBIO) if incluye_seguro else 0.0
 
-# Extracción de valores numéricos de monumentos
 sagrada_usd = 26.0 * TASA_CAMBIO if "simple" in sel_sagrada else (30.0 * TASA_CAMBIO if "Visita Guiada" in sel_sagrada else (36.0 * TASA_CAMBIO if "acceso a torre" in sel_sagrada and "Guiada" not in sel_sagrada else (40.0 * TASA_CAMBIO if "Guiada + acceso" in sel_sagrada else 0.0)))
 coliseo_usd = 18.0 * TASA_CAMBIO if "Foro Romano" in sel_coliseo else (18.0 * TASA_CAMBIO if "Only Arena" in sel_coliseo else (24.0 * TASA_CAMBIO if "Full Experience" in sel_coliseo else 0.0))
 
-# --- AGRUPACIÓN DEL PRESUPUESTO POR CATEGORÍAS EN USD ---
 total_alojamientos_usd = precio_bcn_usd + precio_roma_usd + precio_mad_usd
 total_transporte_usd = (costo_uber_eur * TASA_CAMBIO) + precio_tren_usd + precio_v_roma_usd + precio_v_mad_usd + sitges_usd + girona_usd + florencia_usd + precio_toledo_usd + precio_segovia_usd
 total_tours_usd = vaticano_usd + guell_usd + sagrada_usd + coliseo_usd + prado_usd + esim_usd + seguro_usd
 
 gran_total_persona_usd = total_alojamientos_usd + total_transporte_usd + total_tours_usd
 
-# --- CONTENIDO PRINCIPAL ---
-tab_itinerario, tab_presupuesto = st.tabs(["🗓️ Ver Itinerarios Diarios", "💰 Presupuesto Dinámico"])
+from streamlit_gsheets import GSheetsConnection
+
+# --- FUNCIONES DE PERSISTENCIA CON ST-GSHEETS-CONNECTION ---
+
+def cargar_votos():
+    try:
+        # Creamos la conexión y leemos la hoja de trabajo llamada "votos"
+        conn = st.connection("gsheets", type=GSheetsConnection)
+        df = conn.read(worksheet="votos", ttl=0) # ttl=0 para evitar caché y ver cambios al instante
+        df = df.dropna(how="all") # Limpia filas vacías
+        return df
+    except Exception as e:
+        # Estructura de respaldo en caso de que falte configurar la hoja aún
+        return pd.DataFrame(columns=["Nombre", "Barcelona", "Roma", "Madrid"])
+
+def guardar_voto(nombre, bcn, roma, mad):
+    conn = st.connection("gsheets", type=GSheetsConnection)
+    
+    # 1. Cargamos los votos actuales
+    df_actual = cargar_votos()
+    
+    # 2. Creamos el nuevo registro en formato DataFrame
+    nuevo_registro = pd.DataFrame([{
+        "Nombre": nombre, 
+        "Barcelona": bcn, 
+        "Roma": roma, 
+        "Madrid": mad
+    }])
+    
+    # 3. Concatenamos el nuevo voto al DataFrame existente
+    df_actual = pd.concat([df_actual, nuevo_registro], ignore_index=True)
+    
+    # 4. Actualizamos la hoja completa en Google Drive usando el método update de la conexión
+    conn.update(worksheet="votos", data=df_actual)
+
+# --- CONTENIDO PRINCIPAL (TABS) ---
+tab_itinerario, tab_presupuesto, tab_votacion = st.tabs(["🗓️ Ver Itinerarios Diarios", "💰 Presupuesto Dinámico", "🗳️ Votación de Alojamientos"])
 
 with tab_itinerario:
     st.markdown("### 🗓️ Planes Diarios del Viaje con Alojamientos Activos")
@@ -195,68 +187,35 @@ with tab_itinerario:
     with col_izq_itinerario:
         cit_tabs = st.tabs(["Barcelona", "Roma", "Madrid"])
         
-        # --- TAB BARCELONA ---
         with cit_tabs[0]:
             st.markdown("#### Ruta en Barcelona")
             for p in itinerario_ciudades["Barcelona"]:
                 st.markdown(p)
-            
             if "No asistir" not in sel_sagrada:
                 st.markdown("---")
                 st.info("💡 **Nota para Sagrada Familia:** Comprar las entradas con **3 o 4 semanas de anticipación**.")
 
-        # --- TAB ROMA ---
         with cit_tabs[1]:
             st.markdown("#### Ruta en Roma")
             for p in itinerario_ciudades["Roma"]:
                 st.markdown(p)
-            
             if incluye_vaticano:
                 st.markdown("---")
                 st.info("💡 **Nota para el Vaticano:** Comprar con **60 días de anticipación** cuando el tab de Roma está activo.")
-            
             if "No asistir" not in sel_coliseo:
                 st.markdown("---")
-                st.warning(
-                    "🏛️ **Notas para el Coliseo:**\n\n"
-                    "• **General:** Las entradas son nominativas. Comprar exactamente con **30 días de anticipación** en la página oficial: [ticketing.colosseo.it](https://ticketing.colosseo.it/es/)\n\n"
-                    "• **24h – Coliseo, Foro Romano y Palatino:** Acceso de 75 minutos al 1.° y 2.° nivel del anfiteatro (terrazas) y 20 minutos en la Arena, más entrada válida por 24 horas al Foro Romano y Monte Palatino.\n\n"
-                    "• **Full Experience:** Válida por dos días consecutivos. Permite una visita de 90 minutos en el Coliseo e incluye acceso a áreas especiales como la Arena, los Subterráneos o el Ático (según la modalidad que elijas y la disponibilidad), además de los sitios arqueológicos completos."
-                )
+                st.warning("🏛️ **Notas para el Coliseo:**\n\n• **General:** Las entradas son nominativas. Comprar exactamente con **30 días de anticipación** en la página oficial: [ticketing.colosseo.it](https://ticketing.colosseo.it/es/)\n\n• **24h – Coliseo, Foro Romano y Palatino:** Acceso de 75 minutos al 1.° y 2.° nivel del anfiteatro (terrazas) y 20 minutos en la Arena, más entrada válida por 24 horas al Foro Romano y Monte Palatino.\n\n• **Full Experience:** Válida por dos días consecutivos. Permite una visita de 90 minutos en el Coliseo e incluye acceso a áreas especiales como la Arena, los Subterráneos o el Ático (según la modalidad que elijas y la disponibilidad), además de los sitios arqueológicos completos.")
 
-        # --- TAB MADRID ---
         with cit_tabs[2]:
             st.markdown("#### Ruta en Madrid")
             for p in itinerario_ciudades["Madrid"]:
                 st.markdown(p)
-            
-
-            # Nota para el Tren a Toledo (si está seleccionado)
             if "No asistir" not in opcion_tren_toledo:
                 st.markdown("---")
-                st.info(
-                    "🏰 **Notas para el Viaje a Toledo:**\n\n"
-                    "• **Origen:** Madrid-Puerta de Atocha - Almudena Grandes\n\n"
-                    "• **Destino:** Toledo (Estación de Tren)\n\n"
-                    "• **Tipo de transporte:** Tren de alta velocidad (Renfe Avant)\n\n"
-                    "• **Tiempo de trayecto:** 33 minutos\n\n"
-                    "• **Características:** Servicio exclusivo de alta velocidad (Media Distancia) para esta ruta. Los trenes son directos y muy frecuentes a lo largo del día.\n\n"
-                    "• **Conexión al centro:** Autobús urbano Líneas 5, 6.1, 6.2 o 12 desde la estación de tren hasta la Plaza de Zocodover (aprox. 10 minutos, 1.40 €) o a pie subiendo por las escaleras mecánicas de Safont."
-                )
-
-            # Nota para el Tren a Segovia (si está seleccionado)
+                st.info("🏰 **Notas para el Viaje a Toledo:**\n\n• **Origen:** Madrid-Puerta de Atocha - Almudena Grandes\n\n• **Destino:** Toledo (Estación de Tren)\n\n• **Tipo de transporte:** Tren de alta velocidad (Renfe Avant)\n\n• **Tiempo de trayecto:** 33 minutos\n\n• **Características:** Servicio exclusivo de alta velocidad (Media Distancia) para esta ruta. Los trenes son directos y muy frecuentes a lo largo del día.\n\n• **Conexión al centro:** Autobús urbano Líneas 5, 6.1, 6.2 o 12 desde la estación de tren hasta la Plaza de Zocodover (aprox. 10 minutos, 1.40 €) o a pie subiendo por las escaleras mecánicas de Safont.")
             if "No asistir" not in opcion_tren_segovia:
                 st.markdown("---")
-                st.info(
-                    "⛪ **Notas para el Viaje a Segovia:**\n\n"
-                    "• **Origen:** Madrid-Chamartín-Clara Campoamor\n\n"
-                    "• **Destino:** Segovia-Guiomar\n\n"
-                    "• **Tipo de transporte:** Tren de alta velocidad\n\n"
-                    f"• **Opción seleccionada:** {opcion_tren_segovia}\n\n"
-                    "• **Características:** OUIGO (bajo coste, doble piso, pocas frecuencias); Renfe Avant (servicio regular frecuente, preferido); AVE/Alvia (larga distancia, tarifas dinámicas).\n\n"
-                    "• **Conexión al centro:** Autobús urbano Línea 11 desde la estación Segovia-Guiomar hasta el Acueducto (aprox. 15 minutos, 2 €)."
-                )
-
+                st.info(f"⛪ **Notas para el Viaje a Segovia:**\n\n• **Origen:** Madrid-Chamartín-Clara Campoamor\n\n• **Destino:** Segovia-Guiomar\n\n• **Tipo de transporte:** Tren de alta velocidad\n\n• **Opción seleccionada:** {opcion_tren_segovia}\n\n• **Características:** OUIGO (bajo coste, doble piso, pocas frecuencias); Renfe Avant (servicio regular frecuente, preferido); AVE/Alvia (larga distancia, tarifas dinámicas).\n\n• **Conexión al centro:** Autobús urbano Línea 11 desde la estación Segovia-Guiomar hasta el Acueducto (aprox. 15 minutos, 2 €).")
             if incluye_esim:
                 st.markdown("---")
                 st.info("📱 **Enlace E-sim (Holafly):** Adquiere tu eSIM para el viaje ingresando al [sitio web oficial de Holafly](https://checkout.holafly.com/id/6b4dac80-a92a-4950-8ca6-77675e035b26).")
@@ -314,3 +273,51 @@ with tab_presupuesto:
     with col_grafico:
         st.markdown("📈 Distribución Visual del Gasto")
         st.bar_chart(data=df_desglose, x="Categoría", y="Monto ($ USD)", use_container_width=True)
+
+# --- NUEVA PESTAÑA: VOTACIÓN DE ALOJAMIENTOS ---
+with tab_votacion:
+    st.markdown("### 🗳️ Votación de Alojamientos Preferidos")
+    st.markdown("¡Selecciona tus opciones favoritas para cada ciudad y registra tu voto!")
+    st.write("")
+
+    col_form, col_resumen = st.columns([1, 1.2])
+
+    with col_form:
+        with st.form("form_votacion", clear_on_submit=True):
+            st.markdown("#### 📝 Tu Selección")
+            nombre_votante = st.text_input("Tu Nombre / Alias:", placeholder="Ej. Carlos")
+            
+            voto_bcn = st.selectbox("Barcelona:", list(links_alojamientos["Barcelona"].keys()), key="voto_bcn")
+            voto_roma = st.selectbox("Roma:", list(links_alojamientos["Roma"].keys()), key="voto_roma")
+            voto_mad = st.selectbox("Madrid:", list(links_alojamientos["Madrid"].keys()), key="voto_mad")
+            
+            submitted = st.form_submit_button("📩 Enviar Voto", use_container_width=True)
+
+            if submitted:
+                if nombre_votante.strip() == "":
+                    st.error("Por favor ingresa tu nombre antes de enviar el voto.")
+                else:
+                    guardar_voto(nombre_votante.strip(), voto_bcn, voto_roma, voto_mad)
+                    st.success(f"¡Gracias {nombre_votante}! Tu voto ha sido registrado con éxito.")
+                    st.rerun()
+
+    with col_resumen:
+        st.markdown("#### 📊 Votos Registrados")
+        df_votos = cargar_votos()
+
+        if df_votos.empty:
+            st.info("Aún no hay votos registrados. ¡Sé el primero en votar!")
+        else:
+            st.dataframe(df_votos, use_container_width=True, hide_index=True)
+
+            st.markdown("##### 🏆 Opciones Más Votadas")
+            c1, c2, c3 = st.columns(3)
+            with c1:
+                top_bcn = df_votos["Barcelona"].mode()[0] if not df_votos["Barcelona"].empty else "N/A"
+                st.metric("Top Barcelona", top_bcn.split("-")[0].strip())
+            with c2:
+                top_roma = df_votos["Roma"].mode()[0] if not df_votos["Roma"].empty else "N/A"
+                st.metric("Top Roma", top_roma.split("-")[0].strip())
+            with c3:
+                top_mad = df_votos["Madrid"].mode()[0] if not df_votos["Madrid"].empty else "N/A"
+                st.metric("Top Madrid", top_mad.split("-")[0].strip())
