@@ -122,17 +122,17 @@ precio_tren_usd = 33.60 if "Ouigo" in opcion_tren_bcn else (95.20 if "Iryio" in 
 precio_v_roma_usd = 80.64 if "ITA" in opcion_vuelo_roma else (120.96 if "Ryanair" in opcion_vuelo_roma else 142.24)
 precio_v_mad_usd = 112.00 if "Ryanair" in opcion_vuelo_mad else (119.84 if "Air Europa" in opcion_vuelo_mad else 0.0)
 
-precio_bcn_usd = 310 if "Opción 1" in sel_bcn else (426 if "Opción 2" in sel_bcn else 387)
+precio_bcn_usd = 387 if "Opción 1" in sel_bcn else (352 if "Opción 2" in sel_bcn else 348)
 
 # Precios actualizados para las opciones de Roma
 if "Opción 1" in sel_roma:
-    precio_roma_usd = 321
+    precio_roma_usd = 325
 elif "Opción 2" in sel_roma:
-    precio_roma_usd = 311
+    precio_roma_usd = 314
 elif "Opción 3" in sel_roma:
-    precio_roma_usd = 317
+    precio_roma_usd = 320
 else:
-    precio_roma_usd = 213  # Opción 4
+    precio_roma_usd = 216  # Opción 4
 
 precio_mad_usd = 301 if "Opción 1" in sel_mad else (256 if "Opción 2" in sel_mad else 353)
 
