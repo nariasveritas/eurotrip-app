@@ -42,13 +42,15 @@ itinerario_ciudades = {
 # --- MAPEO DE ENLACES DE TU EXCEL CON ETIQUETAS EN DÓLARES ($ USD) ---
 links_alojamientos = {
     "Barcelona": {
-        "Opción 1 - $ 310 USD pp": "https://www.airbnb.co.cr/rooms/1512152457262736751?adults=8&check_in=2027-04-23&check_out=2027-04-28&search_mode=regular_search&source_impression_id=p3_797a3570-ea4f-4789-89ea-c850c6444174_61386a0a-415e-45a8-b8c7-52a33436dae5_0_1512152457262736751_1&previous_page_section_name=1000&federated_search_id=797a3570-ea4f-4789-89ea-c850c6444174&guests=1",
-        "Opción 2 - $ 426 USD pp": "https://www.airbnb.co.cr/rooms/1261692756822483968?adults=8&check_in=2027-04-23&check_out=2027-04-28&search_mode=regular_search&source_impression_id=p3_15b63f89-ed14-42dd-844c-8e9971529ae6_a08c74d6-97e6-45a8-b92b-663d9e929ae4_0_1261692756822483968_14&previous_page_section_name=1000&federated_search_id=15b63f89-ed14-42dd-844c-8e9971529ae6",
-        "Opción 3 - $ 387 USD pp": "https://www.airbnb.co.cr/rooms/1623922730425823108?adults=8&check_in=2027-04-23&check_out=2027-04-28&search_mode=regular_search&source_impression_id=p3_aac9ce8b-82bc-4fc1-a228-0681532e9661_532722a1-2f6e-4fa2-ba9b-d4d6004078a2_0_1623922730425823108_3&previous_page_section_name=1000&federated_search_id=aac9ce8b-82bc-4fc1-a228-0681532e9661"
+        "Opción 1 - $ 387 USD pp": "https://www.airbnb.co.cr/rooms/1580396?adults=6&check_in=2027-04-23&check_out=2027-04-28&guests=6&search_mode=regular_search&photo_id=106228251&source_impression_id=p3_754fed9b-533c-4adb-bd14-c775836bb9a7_758d7a9d-7afb-4f22-976c-9b22013fb7ad_0_1580396_0&previous_page_section_name=1000&federated_search_id=754fed9b-533c-4adb-bd14-c775836bb9a7",
+        "Opción 2 - $ 352 USD pp": "https://www.airbnb.co.cr/rooms/891762287658652673?adults=6&check_in=2027-04-23&check_out=2027-04-28&guests=6&search_mode=regular_search&photo_id=1651789826&source_impression_id=p3_1792107700_P3wvhWTXMaVy2_6F&previous_page_section_name=1001&federated_search_id=754fed9b-533c-4adb-bd14-c775836bb9a7",
+        "Opción 3 - $ 348 USD pp": "https://www.airbnb.co.cr/rooms/6190328?adults=6&check_in=2027-04-23&check_out=2027-04-28&guests=6&search_mode=regular_search&photo_id=169832653&source_impression_id=p3_1792107685_P3goEaVmmb0nGnl_&previous_page_section_name=1001&federated_search_id=754fed9b-533c-4adb-bd14-c775836bb9a7&review_page_entrypoint=show_all"
     },
     "Roma": {
-        "Opción 1 - $ 373 USD pp (A 20 mins Coliseo)": "https://www.airbnb.co.cr/rooms/1623298203099768546?adults=8&check_in=2027-04-28&check_out=2027-05-03&guests=8&search_mode=regular_search&source_impression_id=p3_70472744-0774-4fe5-8ecc-b74c807abea8_c000b186-0438-4c90-bcd5-6768d39d8ece_0_1623298203099768546_9&previous_page_section_name=1000&federated_search_id=70472744-0774-4fe5-8ecc-b74c807abea8",
-        "Opción 2 - $ 339 USD pp": "https://www.airbnb.co.cr/rooms/52329249?adults=8&check_in=2027-04-28&guests=8&search_mode=regular_search&source_impression_id=p3_9ae5d16f-bec0-47a8-af2f-eb554b7b1c00_284714f0-7524-481e-a542-f857b71ad9f8_0_52329249_4&previous_page_section_name=1000&federated_search_id=9ae5d16f-bec0-47a8-af2f-eb554b7b1c00&review_page_entrypoint=show_all&check_out=2027-05-03"
+        "Opción 1 - $ 325 USD pp": "https://www.airbnb.co.cr/rooms/968597275856161125?adults=7&check_in=2027-04-28&check_out=2027-05-03&guests=8&search_mode=regular_search&photo_id=1734430007&source_impression_id=p3_1792110000_P3dbzsTRA5Hp9yCY&previous_page_section_name=1001&federated_search_id=2f6ee532-eb67-4408-84cd-2842312926c4&review_page_entrypoint=show_all",
+        "Opción 2 - $ 314 USD pp": "https://www.airbnb.co.cr/rooms/42442748?adults=7&check_in=2027-04-28&check_out=2027-05-03&guests=8&search_mode=regular_search&photo_id=1933610282&source_impression_id=p3_1792110023_P3FLAPa3lpPcBoWG&previous_page_section_name=1001&federated_search_id=ffcefd1f-88bb-4efb-aba8-e4dd7910de96&review_page_entrypoint=show_all",
+        "Opción 3 - $ 320 USD pp": "https://www.airbnb.co.cr/rooms/1605670746685790056?adults=7&check_in=2027-04-28&check_out=2027-05-03&guests=8&search_mode=regular_search&photo_id=2490969508&source_impression_id=p3_b6c1f7e8-7922-49d7-8aad-68da28c86db1_bbf43ef4-1fab-4f3d-a9a2-ec081ebcc497_0_1605670746685790056_0&previous_page_section_name=1000&federated_search_id=b6c1f7e8-7922-49d7-8aad-68da28c86db1",
+        "Opción 4 - $ 216 USD pp": "https://www.airbnb.co.cr/rooms/1427533406472074603?adults=7&check_in=2027-04-28&check_out=2027-05-03&guests=8&search_mode=regular_search&photo_id=2197164418&source_impression_id=p3_1792109950_P3_RbuFV9DMWeKe-&previous_page_section_name=1001&federated_search_id=b119e966-38eb-4577-9c1d-9b41a587a9d9&review_page_entrypoint=show_all"
     },
     "Madrid": {
         "Opción 1 - $ 301 USD pp": "https://www.airbnb.co.cr/rooms/16993980?adults=8&check_in=2027-05-03&check_out=2027-05-07&search_mode=regular_search&source_impression_id=p3_ddc2b793-4850-4c8a-83ff-8e5632fb7e86_2c5c7aca-8de2-4dfa-afee-7ac9f5e83da3_0_16993980_1&previous_page_section_name=1000&federated_search_id=ddc2b793-4850-4c8a-83ff-8e5632fb7e86",
@@ -76,8 +78,13 @@ with st.sidebar:
     
     st.markdown("---")
     st.subheader("🏠 Alojamientos por Ciudad")
+    
     sel_bcn = st.selectbox("Alojamiento BCN:", list(links_alojamientos["Barcelona"].keys()))
+    st.caption("💶 *Incluye tarifa extra: €47.50 por persona (Tasa turística)*")
+    
     sel_roma = st.selectbox("Alojamiento Roma:", list(links_alojamientos["Roma"].keys()))
+    st.caption("💶 *Incluye tarifa extra: €30.00 por persona (Tasa turística)*")
+    
     sel_mad = st.selectbox("Alojamiento Madrid:", list(links_alojamientos["Madrid"].keys()))
     
     st.markdown("---")
@@ -116,7 +123,17 @@ precio_v_roma_usd = 80.64 if "ITA" in opcion_vuelo_roma else (120.96 if "Ryanair
 precio_v_mad_usd = 112.00 if "Ryanair" in opcion_vuelo_mad else (119.84 if "Air Europa" in opcion_vuelo_mad else 0.0)
 
 precio_bcn_usd = 310 if "Opción 1" in sel_bcn else (426 if "Opción 2" in sel_bcn else 387)
-precio_roma_usd = 373 if "Opción 1" in sel_roma else 339
+
+# Precios actualizados para las opciones de Roma
+if "Opción 1" in sel_roma:
+    precio_roma_usd = 321
+elif "Opción 2" in sel_roma:
+    precio_roma_usd = 311
+elif "Opción 3" in sel_roma:
+    precio_roma_usd = 317
+else:
+    precio_roma_usd = 213  # Opción 4
+
 precio_mad_usd = 301 if "Opción 1" in sel_mad else (256 if "Opción 2" in sel_mad else 353)
 
 precio_toledo_usd = (22.20 * TASA_CAMBIO) if "Ida y Vuelta" in opcion_tren_toledo else ((13.90 * TASA_CAMBIO) if "Solo Ida" in opcion_tren_toledo else 0.0)
@@ -146,33 +163,23 @@ from streamlit_gsheets import GSheetsConnection
 
 def cargar_votos():
     try:
-        # Creamos la conexión y leemos la hoja de trabajo llamada "votos"
         conn = st.connection("gsheets", type=GSheetsConnection)
-        df = conn.read(worksheet="votos", ttl=0) # ttl=0 para evitar caché y ver cambios al instante
-        df = df.dropna(how="all") # Limpia filas vacías
+        df = conn.read(worksheet="votos", ttl=0)
+        df = df.dropna(how="all")
         return df
     except Exception as e:
-        # Estructura de respaldo en caso de que falte configurar la hoja aún
         return pd.DataFrame(columns=["Nombre", "Barcelona", "Roma", "Madrid"])
 
 def guardar_voto(nombre, bcn, roma, mad):
     conn = st.connection("gsheets", type=GSheetsConnection)
-    
-    # 1. Cargamos los votos actuales
     df_actual = cargar_votos()
-    
-    # 2. Creamos el nuevo registro en formato DataFrame
     nuevo_registro = pd.DataFrame([{
         "Nombre": nombre, 
         "Barcelona": bcn, 
         "Roma": roma, 
         "Madrid": mad
     }])
-    
-    # 3. Concatenamos el nuevo voto al DataFrame existente
     df_actual = pd.concat([df_actual, nuevo_registro], ignore_index=True)
-    
-    # 4. Actualizamos la hoja completa en Google Drive usando el método update de la conexión
     conn.update(worksheet="votos", data=df_actual)
 
 # --- CONTENIDO PRINCIPAL (TABS) ---
